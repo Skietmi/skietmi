@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grafiikkaa ja taidevedoksia. Tutustu teoksiin ja ota yhteyttä.">
+  <title>Grafiikka — Oma nimi</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f8f7f3;
+      color: #292923;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 36px 28px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 20px;
+      border-bottom: 1px solid #deddd5;
+    }
+
+    header a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-name {
+      font-size: 23px;
+      letter-spacing: 0.04em;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 65px 28px;
+    }
+
+    .intro {
+      max-width: 560px;
+      margin-bottom: 60px;
+    }
+
+    .intro p {
+      font-size: 19px;
+      line-height: 1.7;
+      color: #66665d;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: normal;
+      line-height: 1.15;
+      margin: 0 0 22px;
+    }
+
+    h2 {
+      font-size: 25px;
+      font-weight: normal;
+      margin-bottom: 28px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px 22px;
+    }
+
+    .artwork img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #e8e5dc;
+    }
+
+    .artwork h3 {
+      font-size: 17px;
+      font-weight: normal;
+      margin: 13px 0 5px;
+    }
+
+    .artwork p {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      color: #77766d;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .about {
+      margin-top: 85px;
+      padding-top: 35px;
+      border-top: 1px solid #deddd5;
+      max-width: 580px;
+    }
+
+    .about p {
+      line-height: 1.8;
+      color: #66665d;
+    }
+
+    .contact {
+      margin-top: 65px;
+      padding: 35px;
+      background: #eeece4;
+      text-align: center;
+    }
+
+    .contact a {
+      color: inherit;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      font: 12px Arial, sans-serif;
+      color: #77766d;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 25px 20px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 18px;
+      }
+
+      main {
+        padding: 45px 20px;
+      }
+
+      .intro {
+        margin-bottom: 42px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 14px;
+      }
+
+      .contact {
+        padding: 28px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="site-name" href="#">OMA NIMI</a>
+    <nav>
+      <a href="#teokset">Teokset</a>
+      <a href="#minusta">Minusta</a>
+      <a href="#yhteys">Yhteys</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h1>Grafiikkaa ja taidevedoksia</h1>
+      <p>
+        Tervetuloa tutustumaan teoksiini.
+        Ota yhteyttä, jos jokin työ puhuttelee
+        tai haluat tiedustella vedosten saatavuutta.
+      </p>
+    </section>
+
+    <section id="teokset">
+      <h2>Valikoituja teoksia</h2>
+
+      <div class="gallery">
+        <article class="artwork">
+          <img src="images/teos-1.jpg" alt="Ensimmäinen grafiikan teos">
+          <h3>Teoksen nimi</h3>
+          <p>Tekniikka · Vedoksen koko</p>
+        </article>
+
+        <article class="artwork">
+          <img src="images/teos-2.jpg" alt="Toinen grafiikan teos">
+          <h3>Teoksen nimi</h3>
+          <p>Tekniikka · Vedoksen koko</p>
+        </article>
+
+        <article class="artwork">
+          <img src="images/teos-3.jpg" alt="Kolmas grafiikan teos">
+          <h3>Teoksen nimi</h3>
+          <p>Tekniikka · Vedoksen koko</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="minusta" class="about">
+      <h2>Minusta</h2>
+      <p>
+        Olen grafiikan tekijä. Työskentelyssäni tutkin
+        muotoja, pintoja ja kuvia painetun taiteen keinoin.
+        Tältä sivulta löydät valikoiman teoksiani.
+      </p>
+    </section>
+
+    <section id="yhteys" class="contact">
+      <h2>Kiinnostuitko teoksesta?</h2>
+      <p>Voit tiedustella vedoksista sähköpostitse.</p>
+      <p><a href="mailto:OMA.SAHKOPOSTI@ESIMERKKI.FI">OMA.SAHKOPOSTI@ESIMERKKI.FI</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="vuosi">2026</span> OMA NIMI
+  </footer>
+</body>
+</html>
