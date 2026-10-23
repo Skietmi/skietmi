@@ -20,7 +20,7 @@
     display: flex;
   }
 
-  .lightbox img {
+  .lightbox artwork {
     max-width: 95%;
     max-height: 90vh;
     object-fit: contain;
@@ -295,7 +295,7 @@
 
 <script>
   const lightbox = document.getElementById('lightbox');
-  const enlarge = lightbox.querySelector('img');
+  const enlarge = lightbox.querySelector('artwork');
   const close = lightbox.querySelector('button');
 
   document.querySelectorAll('.gallery .artwork').forEach((artwork) => {
