@@ -299,12 +299,12 @@
   const sulje = lightbox.querySelector('button');
 
   // Etsitään vain gallerian teoskuvat
-  document.querySelectorAll('.gallery .artwork').forEach((kuva) => {
-    kuva.style.cursor = 'zoom-in';
+  document.querySelectorAll('.gallery .artwork').forEach((artwork) => {
+    artwork.style.cursor = 'zoom-in';
 
     kuva.addEventListener('click', () => {
-      suurennettu.src = kuva.src;
-      suurennettu.alt = kuva.alt;
+      suurennettu.src = artwork.src;
+      suurennettu.alt = artwork.alt;
       lightbox.classList.add('avaa');
     });
   });
