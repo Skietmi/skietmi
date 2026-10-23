@@ -302,9 +302,12 @@
     artwork.style.cursor = 'zoom-in';
 
     artwork.addEventListener('click', () => {
-      enlargeArtwork.src = artwork.src;
-      enlargeArtwork.alt = artwork.alt;
-      lightbox.classList.add('open');
+    enlargeArtwork.src = artwork.currentSrc || artwork.src;
+enlargeArtwork.alt = artwork.alt;
+lightbox.classList.add('open');
+
+console.log('Alkuperäinen kuva:', artwork.src);
+console.log('Suurennettava kuva:', enlargeArtwork.src);
     });
   });
 
