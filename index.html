@@ -123,7 +123,7 @@
     .artwork img {
       display: block;
       width: 100%;
-      height: auto
+      height: auto;
       object-fit: contain;
       background: #e8e5dc;
     }
@@ -288,17 +288,17 @@
 
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "72d5981ff5a14d5ab42dbfd74797eae6"}'></script>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Suurennettu teos">
-  <button class="lightbox-sulje" type="button" aria-label="Sulje">&times;</button>
-  <img src="" alt="">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Suurennettu teos">
+  <button class="lightbox-close" type="button" aria-label="Sulje">&times;</button>
+  <img id="lightbox-image" src="" alt="">
 </div>
 
 <script>
   const lightbox = document.getElementById('lightbox');
-  const enlargeArtwork = lightbox.querySelector('img');
-  const close = lightbox.querySelector('button');
+  const enlargeArtwork = document.getElementById('lightbox-image');
+  const close = lightbox.querySelector('.lightbox-close');
 
-  document.querySelectorAll('.gallery .artwork').forEach((artwork) => {
+  document.querySelectorAll('.gallery .artwork img').forEach((artwork) => {
     artwork.style.cursor = 'zoom-in';
 
     artwork.addEventListener('click', () => {
