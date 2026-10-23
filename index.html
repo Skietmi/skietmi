@@ -16,7 +16,7 @@
     cursor: zoom-out;
   }
 
-  .lightbox.avaa {
+  .lightbox.open {
     display: flex;
   }
 
@@ -26,7 +26,7 @@
     object-fit: contain;
   }
 
-  .lightbox-sulje {
+  .lightbox-close {
     position: absolute;
     top: 16px;
     right: 24px;
@@ -295,39 +295,35 @@
 
 <script>
   const lightbox = document.getElementById('lightbox');
-  const suurennettu = lightbox.querySelector('img');
-  const sulje = lightbox.querySelector('button');
+  const enlarge = lightbox.querySelector('img');
+  const close = lightbox.querySelector('button');
 
-  // Etsitään vain gallerian teoskuvat
   document.querySelectorAll('.gallery .artwork').forEach((artwork) => {
     artwork.style.cursor = 'zoom-in';
 
-    kuva.addEventListener('click', () => {
-      suurennettu.src = artwork.src;
-      suurennettu.alt = artwork.alt;
-      lightbox.classList.add('avaa');
+    artwork.addEventListener('click', () => {
+      enlarge.src = artwork.src;
+      enlarge.alt = artwork.alt;
+      lightbox.classList.add('open');
     });
   });
 
-  // Suljetaan suurennettu kuva
-  function suljeLightbox() {
-    lightbox.classList.remove('avaa');
-    suurennettu.src = '';
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    enlarge.src = '';
   }
 
-  sulje.addEventListener('click', suljeLightbox);
+  close.addEventListener('click', closeLightbox);
 
-  // Suljetaan myös taustaa klikkaamalla
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) {
-      suljeLightbox();
+      closeLightbox();
     }
   });
 
-  // Suljetaan Esc-näppäimellä
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      suljeLightbox();
+      closeLightbox();
     }
   });
 </script>
