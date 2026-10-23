@@ -295,10 +295,10 @@
 
 <script>
   const lightbox = document.getElementById('lightbox');
-  const enlarge = lightbox.querySelector('artwork');
+  const enlargeArtwork = lightbox.querySelector('artwork');
   const close = lightbox.querySelector('button');
 
-  document.querySelectorAll('.artwork').forEach((artwork) => {
+  document.querySelectorAll('.gallery .artwork').forEach((artwork) => {
     artwork.style.cursor = 'zoom-in';
 
     artwork.addEventListener('click', () => {
@@ -310,7 +310,7 @@
 
   function closeLightbox() {
     lightbox.classList.remove('open');
-    enlarge.src = '';
+    enlargeArtwork.src = '';
   }
 
   close.addEventListener('click', closeLightbox);
