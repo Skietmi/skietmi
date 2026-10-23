@@ -2,6 +2,43 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
+
+<style>
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.88);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    cursor: zoom-out;
+  }
+
+  .lightbox.avaa {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+
+  .lightbox-sulje {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    color: white;
+    font-size: 36px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+</style>
+  
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Unenomaista grafiikkaa. Tutustu teoksiin ja ota yhteyttä.">
@@ -250,6 +287,50 @@
   </footer>
 
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "72d5981ff5a14d5ab42dbfd74797eae6"}'></script>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Suurennettu teos">
+  <button class="lightbox-sulje" type="button" aria-label="Sulje">&times;</button>
+  <img src="" alt="">
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const suurennettu = lightbox.querySelector('img');
+  const sulje = lightbox.querySelector('button');
+
+  // Etsitään vain gallerian teoskuvat
+  document.querySelectorAll('.gallery .artwork').forEach((kuva) => {
+    kuva.style.cursor = 'zoom-in';
+
+    kuva.addEventListener('click', () => {
+      suurennettu.src = kuva.src;
+      suurennettu.alt = kuva.alt;
+      lightbox.classList.add('avaa');
+    });
+  });
+
+  // Suljetaan suurennettu kuva
+  function suljeLightbox() {
+    lightbox.classList.remove('avaa');
+    suurennettu.src = '';
+  }
+
+  sulje.addEventListener('click', suljeLightbox);
+
+  // Suljetaan myös taustaa klikkaamalla
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      suljeLightbox();
+    }
+  });
+
+  // Suljetaan Esc-näppäimellä
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      suljeLightbox();
+    }
+  });
+</script>
   
 </body>
 </html>
